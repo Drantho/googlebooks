@@ -2,9 +2,8 @@ const express = require("express");
 const router = express();
 const axios = require("axios");
 const Book = require("../models/Book");
-const { response } = require("express");
 
-const url = `https://www.googleapis.com/books/v1/volumes?key=${process.env.BOOKS_API_KEY}&q=`;
+const url = `https://www.googleapis.com/books/v1/volumes?maxResults=40&key=${process.env.BOOKS_API_KEY}&q=`;
 
 router.get("/search", (req,res) => {    
     axios.get(url + req.query.search).then(response => {

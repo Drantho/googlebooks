@@ -9,9 +9,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="*">
+        <Route exact path="/">
           <Home/>
-        </Route>
+        </Route>        
       </Switch>
     </Router>
   );
