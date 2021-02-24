@@ -43,6 +43,15 @@ export default function Home() {
         })
     }
 
+    const addBook = data => {
+        API.createBook(data).then(response => {
+            console.log(response);
+            API.getMyBooks().then(getResponse => {
+                setBooks(getResponse.data);
+            })
+        })
+    }
+
     useEffect(()=>{
 
         API.getMyBooks().then(response => {
@@ -58,7 +67,8 @@ export default function Home() {
                 <input name="search" value={search} onChange={handleInputChanged}/><br/>
                 <button onClick={handleSubmit}>Search</button>
                 <h2>Results</h2>
-                {book.map(item => <BookResult book={item} />)}
+                {book.map(item => <BookResult book={item} addBook={addBook}/>)}
+
             {/* <pre>
                 {JSON.stringify(book, null, 4)}
             </pre> */}

@@ -11,6 +11,11 @@ export default {
   getMyBooks: () => {
     console.log(`${url}/api/books/myBooks`);
     return axios.get(`${url}/api/books/myBooks`);
+  },
+  createBook: data => {
+    console.log(`${url}/api/books/`);
+    console.log(data);
+    return axios.post(`${url}/api/books/`, data);
   }
 
 };
