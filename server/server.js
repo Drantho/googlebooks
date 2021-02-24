@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const compression = require("compression");
+const morgan = require("morgan");
 
 require('dotenv').config()
 
@@ -17,6 +18,8 @@ app.use(routes);
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("../client/build"))
+}else{
+    app.use(morgan());
 }
 
 const PORT = process.env.PORT || 3001;
